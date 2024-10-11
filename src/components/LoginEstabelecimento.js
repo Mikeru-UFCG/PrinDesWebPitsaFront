@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import './LoginEstabelecimento.css'; // Importa o CSS
 
 const LoginEstabelecimento = () => {
   const [codigoAcesso, setCodigoAcesso] = useState('');
@@ -7,13 +8,18 @@ const LoginEstabelecimento = () => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    // Aqui você consumiria a API para login
-    // Exemplo: fetch para a rota de login de estabelecimento.
-    console.log('Tentando logar com código de acesso:', codigoAcesso);
+    // Aqui você poderia validar o código de acesso
+    // Se o código for válido, redirecionar para o perfil do estabelecimento
+    if (codigoAcesso) {
+      console.log('Tentando logar com código de acesso:', codigoAcesso);
+      navigate('/estabelecimento-perfil'); // Direciona ao perfil do estabelecimento
+    } else {
+      alert('Por favor, insira um código de acesso válido.'); // Feedback simples
+    }
   };
 
   return (
-    <div style={{ textAlign: 'center', marginTop: '50px' }}>
+    <div className="dashboard"> {/* Adiciona a classe do dashboard */}
       <h2>Escreva seu código de acesso:</h2>
       <form onSubmit={handleLogin}>
         <input
@@ -21,14 +27,14 @@ const LoginEstabelecimento = () => {
           value={codigoAcesso}
           onChange={(e) => setCodigoAcesso(e.target.value)}
           placeholder="Código de acesso"
-          style={{ padding: '10px', margin: '10px', width: '300px' }}
+          className="input-field" // Classe para o campo de entrada
         />
         <br />
-        <button type="submit" style={{ padding: '10px 20px' }}>Entrar</button>
+        <button type="submit" className="submit-button">Entrar</button> {/* Classe para o botão */}
       </form>
-      <button onClick={() => navigate('/estabelecimento-cadastro')} style={{ marginTop: '20px', padding: '10px 20px' }}>
+      <button onClick={() => navigate('/estabelecimento-cadastro')} className="register-button">
         Realizar cadastro
-      </button>
+      </button> {/* Classe para o botão de cadastro */}
     </div>
   );
 };

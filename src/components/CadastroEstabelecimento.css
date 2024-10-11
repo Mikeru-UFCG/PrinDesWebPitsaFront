@@ -1,0 +1,33 @@
+/* Estilo para o dashboard */
+.dashboard {
+    background-color: rgba(245, 222, 179, 0.9); /* Cor bege com leve transparência */
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    max-width: 800px; /* Largura máxima do dashboard */
+    margin: 50px auto; /* Centraliza o dashboard na tela */
+    text-align: center; /* Centraliza o texto */
+  }
+  
+  /* Estilo para os campos de entrada */
+  .input-field {
+    padding: 10px;
+    margin: 10px;
+    width: 300px;
+  }
+  
+  /* Estilo para o botão de submit */
+  .submit-button {
+    background-color: #ffcc00; /* Cor amarela */
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+  }
+  
+  .submit-button:hover {
+    background-color: #e6b800; /* Cor ao passar o mouse */
+  }
+  

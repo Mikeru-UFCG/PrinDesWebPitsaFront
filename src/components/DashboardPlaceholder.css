@@ -1,0 +1,41 @@
+/* Define a imagem de fundo e centraliza o dashboard */
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('../../public/estabelecimentoperfil.jpg'); /* Altere o caminho da imagem */
+  background-size: cover;
+}
+
+/* Estilo para o dashboard */
+.dashboard {
+  background-color: rgba(245, 222, 179, 0.9); /* Cor bege com leve transparência */
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  max-width: 800px; /* Largura máxima do dashboard */
+  width: 100%; /* Largura 100% para se adaptar ao container */
+  text-align: center; /* Centraliza o texto */
+}
+
+/* Estilo para o botão de voltar */
+.back-button {
+  display: inline-block;
+  margin-top: 20px; /* Espaço acima do botão */
+  background-color: #ffcc00; /* Cor amarela */
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  text-decoration: none; /* Remove o sublinhado do link */
+  color: black; /* Cor do texto do botão */
+  transition: background-color 0.3s;
+}
+
+.back-button:hover {
+  background-color: #e6b800; /* Cor ao passar o mouse */
+}

@@ -1,46 +1,33 @@
 import React, { useState } from 'react';
-import config from '../config';  // Importa a configuração da API
+import { useNavigate } from 'react-router-dom'; // Importa useNavigate
+import './CadastroEstabelecimento.css'; // Importa o CSS
 
 const CadastroEstabelecimento = () => {
   const [nomeEstabelecimento, setNomeEstabelecimento] = useState('');
   const [codigoAcesso, setCodigoAcesso] = useState('');
-  const [mensagem, setMensagem] = useState('');  // Estado para exibir mensagens de sucesso ou erro
+  const navigate = useNavigate(); // Inicializa o hook useNavigate
 
-  const handleCadastro = async (e) => {
+  const handleCadastro = (e) => {
     e.preventDefault();
+    
+    // Aqui você pode adicionar a lógica de cadastro, como chamadas à API.
+    // Para o exemplo, vamos apenas simular o cadastro.
 
-    // Dados a serem enviados no corpo da requisição
-    const novoEstabelecimento = {
+    // Limpa os campos após o cadastro
+    setNomeEstabelecimento('');
+    setCodigoAcesso('');
+
+    console.log('Cadastro realizado (simulado):', {
       nome: nomeEstabelecimento,
       codigoDeAcesso: codigoAcesso,
-    };
+    });
 
-    try {
-      // Faz a requisição POST para a API
-      const response = await fetch(`${config.apiUrl}/estabelecimentos`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(novoEstabelecimento),
-      });
-
-      // Verifica se a requisição foi bem-sucedida
-      if (response.ok) {
-        setMensagem('Estabelecimento criado com sucesso!');
-        setNomeEstabelecimento('');  // Limpa o campo após sucesso
-        setCodigoAcesso('');         // Limpa o campo após sucesso
-      } else {
-        const errorData = await response.json();
-        setMensagem(`Erro ao criar estabelecimento: ${errorData.error}`);
-      }
-    } catch (error) {
-      setMensagem(`Erro ao criar estabelecimento: ${error.message}`);
-    }
+    // Redireciona para a página de LoginEstabelecimento
+    navigate('/estabelecimento-login'); // Certifique-se de que essa rota está definida
   };
 
   return (
-    <div style={{ textAlign: 'center', marginTop: '50px' }}>
+    <div className="dashboard"> {/* Adiciona a classe do dashboard */}
       <h2>Qual o nome do estabelecimento?</h2>
       <form onSubmit={handleCadastro}>
         <input
@@ -48,7 +35,7 @@ const CadastroEstabelecimento = () => {
           value={nomeEstabelecimento}
           onChange={(e) => setNomeEstabelecimento(e.target.value)}
           placeholder="Nome do Estabelecimento"
-          style={{ padding: '10px', margin: '10px', width: '300px' }}
+          className="input-field" // Classe para o campo de entrada
         />
         <br />
         <h2>Escreva o seu código de acesso (6 dígitos):</h2>
@@ -57,14 +44,11 @@ const CadastroEstabelecimento = () => {
           value={codigoAcesso}
           onChange={(e) => setCodigoAcesso(e.target.value)}
           placeholder="Código de Acesso"
-          style={{ padding: '10px', margin: '10px', width: '300px' }}
+          className="input-field" // Classe para o campo de entrada
         />
         <br />
-        <button type="submit" style={{ padding: '10px 20px' }}>Criar meu estabelecimento</button>
+        <button type="submit" className="submit-button">Criar meu estabelecimento</button> {/* Classe para o botão */}
       </form>
-
-      {/* Exibe a mensagem de sucesso ou erro */}
-      {mensagem && <p>{mensagem}</p>}
     </div>
   );
 };
