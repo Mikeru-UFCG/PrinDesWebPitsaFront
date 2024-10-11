@@ -51,7 +51,7 @@ const CadastroEstabelecimento = () => {
           style={{ padding: '10px', margin: '10px', width: '300px' }}
         />
         <br />
-        <h2>Escreva o seu código de acesso:</h2>
+        <h2>Escreva o seu código de acesso (6 dígitos):</h2>
         <input
           type="password"  // Use "password" para esconder o código de acesso
           value={codigoAcesso}
