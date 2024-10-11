@@ -5,7 +5,7 @@ import './Dashboard.css'; // Certifique-se de que o caminho está correto
 const Dashboard = () => {
   return (
     <div className="dashboard">
-      <h1>PWD Pizzas, a sua plataforma de delivery de pizzas.</h1>
+      <h1>PDW Pizzas, a sua plataforma de delivery de pizzas.</h1>
       <p>Escolha uma opção para continuar:</p>
       <div className="button-container">
         <Link to="/estabelecimento-login">
